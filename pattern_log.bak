@@ -1,0 +1,260 @@
+fill 18749
+B4 x Y1   bbx:0-7  ybx:80-87
+B4 x Y1   bbx:8-15  ybx:88-95
+B4 x Y2   bbx:16-23  ybx:96-103
+B4 x Y1   bbx:24-31  ybx:104-111
+B4 x Y0   bbx:32-39  ybx:112-119
+B4 x Y2   bbx:40-47  ybx:0-7
+B4 x Y1   bbx:48-55  ybx:8-15
+B4 x Y1   bbx:56-63  ybx:16-23
+B4 x Y2   bbx:64-71  ybx:24-31
+B4 x Y1   bbx:72-79  ybx:32-39
+B4 x Y1   bbx:80-87  ybx:40-47
+B4 x Y2   bbx:88-95  ybx:48-55
+B4 x Y1   bbx:96-103  ybx:56-63
+B4 x Y1   bbx:104-111  ybx:64-71
+B0 x Y2   bbx:112-119  ybx:72-79
+sum: 56 19
+18749:  B[444] x Y[112] (by STAR bXing no. & odd spin flips)
+18749:  B[333] x Y[122] (by bunch no. & no spin flips)
+
+fill 18750
+B3 x Y2   bbx:0-7  ybx:80-87
+B3 x Y2   bbx:8-15  ybx:88-95
+B3 x Y2   bbx:16-23  ybx:96-103
+B3 x Y2   bbx:24-31  ybx:104-111
+B3 x Y0   bbx:32-39  ybx:112-119
+B3 x Y2   bbx:40-47  ybx:0-7
+B3 x Y2   bbx:48-55  ybx:8-15
+B3 x Y2   bbx:56-63  ybx:16-23
+B3 x Y2   bbx:64-71  ybx:24-31
+B3 x Y2   bbx:72-79  ybx:32-39
+B3 x Y2   bbx:80-87  ybx:40-47
+B3 x Y2   bbx:88-95  ybx:48-55
+B3 x Y2   bbx:96-103  ybx:56-63
+B3 x Y2   bbx:104-111  ybx:64-71
+B0 x Y2   bbx:112-119  ybx:72-79
+sum: 42 28
+18750:  B[333] x Y[222] (by STAR bXing no. & odd spin flips)
+18750:  B[444] x Y[111] (by bunch no. & no spin flips)
+
+fill 18751
+B4 x Y2   bbx:0-7  ybx:80-87
+B4 x Y2   bbx:8-15  ybx:88-95
+B4 x Y1   bbx:16-23  ybx:96-103
+B4 x Y2   bbx:24-31  ybx:104-111
+B4 x Y0   bbx:32-39  ybx:112-119
+B4 x Y1   bbx:40-47  ybx:0-7
+B4 x Y2   bbx:48-55  ybx:8-15
+B4 x Y2   bbx:56-63  ybx:16-23
+B4 x Y1   bbx:64-71  ybx:24-31
+B4 x Y2   bbx:72-79  ybx:32-39
+B4 x Y2   bbx:80-87  ybx:40-47
+B4 x Y1   bbx:88-95  ybx:48-55
+B4 x Y2   bbx:96-103  ybx:56-63
+B4 x Y2   bbx:104-111  ybx:64-71
+B0 x Y1   bbx:112-119  ybx:72-79
+sum: 56 23
+18751:  B[444] x Y[221] (by STAR bXing no. & odd spin flips)
+18751:  B[333] x Y[211] (by bunch no. & no spin flips)
+
+fill 18752
+B3 x Y2   bbx:0-7  ybx:80-87
+B3 x Y2   bbx:8-15  ybx:88-95
+B3 x Y1   bbx:16-23  ybx:96-103
+B3 x Y2   bbx:24-31  ybx:104-111
+B3 x Y0   bbx:32-39  ybx:112-119
+B3 x Y1   bbx:40-47  ybx:0-7
+B3 x Y2   bbx:48-55  ybx:8-15
+B3 x Y2   bbx:56-63  ybx:16-23
+B3 x Y1   bbx:64-71  ybx:24-31
+B3 x Y2   bbx:72-79  ybx:32-39
+B3 x Y2   bbx:80-87  ybx:40-47
+B3 x Y1   bbx:88-95  ybx:48-55
+B3 x Y2   bbx:96-103  ybx:56-63
+B3 x Y2   bbx:104-111  ybx:64-71
+B0 x Y1   bbx:112-119  ybx:72-79
+sum: 42 23
+18752:  B[333] x Y[221] (by STAR bXing no. & odd spin flips)
+18752:  B[444] x Y[211] (by bunch no. & no spin flips)
+
+fill 18753
+B2 x Y4   bbx:0-7  ybx:80-87
+B1 x Y4   bbx:8-15  ybx:88-95
+B1 x Y4   bbx:16-23  ybx:96-103
+B2 x Y4   bbx:24-31  ybx:104-111
+B1 x Y0   bbx:32-39  ybx:112-119
+B1 x Y4   bbx:40-47  ybx:0-7
+B2 x Y4   bbx:48-55  ybx:8-15
+B1 x Y4   bbx:56-63  ybx:16-23
+B1 x Y4   bbx:64-71  ybx:24-31
+B2 x Y4   bbx:72-79  ybx:32-39
+B1 x Y4   bbx:80-87  ybx:40-47
+B1 x Y4   bbx:88-95  ybx:48-55
+B2 x Y4   bbx:96-103  ybx:56-63
+B1 x Y4   bbx:104-111  ybx:64-71
+B0 x Y4   bbx:112-119  ybx:72-79
+sum: 19 56
+18753:  B[211] x Y[444] (by STAR bXing no. & odd spin flips)
+18753:  B[122] x Y[333] (by bunch no. & no spin flips)
+
+fill 18754
+B1 x Y4   bbx:0-7  ybx:80-87
+B2 x Y4   bbx:8-15  ybx:88-95
+B2 x Y4   bbx:16-23  ybx:96-103
+B1 x Y4   bbx:24-31  ybx:104-111
+B2 x Y0   bbx:32-39  ybx:112-119
+B2 x Y4   bbx:40-47  ybx:0-7
+B1 x Y4   bbx:48-55  ybx:8-15
+B2 x Y4   bbx:56-63  ybx:16-23
+B2 x Y4   bbx:64-71  ybx:24-31
+B1 x Y4   bbx:72-79  ybx:32-39
+B2 x Y4   bbx:80-87  ybx:40-47
+B2 x Y4   bbx:88-95  ybx:48-55
+B1 x Y4   bbx:96-103  ybx:56-63
+B2 x Y4   bbx:104-111  ybx:64-71
+B0 x Y4   bbx:112-119  ybx:72-79
+sum: 23 56
+18754:  B[122] x Y[444] (by STAR bXing no. & odd spin flips)
+18754:  B[211] x Y[333] (by bunch no. & no spin flips)
+
+fill 18758
+B2 x Y3   bbx:0-7  ybx:80-87
+B1 x Y3   bbx:8-15  ybx:88-95
+B1 x Y3   bbx:16-23  ybx:96-103
+B2 x Y3   bbx:24-31  ybx:104-111
+B1 x Y0   bbx:32-39  ybx:112-119
+B1 x Y3   bbx:40-47  ybx:0-7
+B2 x Y3   bbx:48-55  ybx:8-15
+B1 x Y3   bbx:56-63  ybx:16-23
+B1 x Y3   bbx:64-71  ybx:24-31
+B2 x Y3   bbx:72-79  ybx:32-39
+B1 x Y3   bbx:80-87  ybx:40-47
+B1 x Y3   bbx:88-95  ybx:48-55
+B2 x Y3   bbx:96-103  ybx:56-63
+B1 x Y3   bbx:104-111  ybx:64-71
+B0 x Y3   bbx:112-119  ybx:72-79
+sum: 19 42
+18758:  B[211] x Y[333] (by STAR bXing no. & odd spin flips)
+18758:  B[122] x Y[444] (by bunch no. & no spin flips)
+
+fill 18760
+B1 x Y3   bbx:0-7  ybx:80-87
+B2 x Y3   bbx:8-15  ybx:88-95
+B2 x Y3   bbx:16-23  ybx:96-103
+B1 x Y3   bbx:24-31  ybx:104-111
+B2 x Y0   bbx:32-39  ybx:112-119
+B2 x Y3   bbx:40-47  ybx:0-7
+B1 x Y3   bbx:48-55  ybx:8-15
+B2 x Y3   bbx:56-63  ybx:16-23
+B2 x Y3   bbx:64-71  ybx:24-31
+B1 x Y3   bbx:72-79  ybx:32-39
+B2 x Y3   bbx:80-87  ybx:40-47
+B2 x Y3   bbx:88-95  ybx:48-55
+B1 x Y3   bbx:96-103  ybx:56-63
+B2 x Y3   bbx:104-111  ybx:64-71
+B0 x Y3   bbx:112-119  ybx:72-79
+sum: 23 42
+18760:  B[122] x Y[333] (by STAR bXing no. & odd spin flips)
+18760:  B[211] x Y[444] (by bunch no. & no spin flips)
+
+fill 18761
+B4 x Y1   bbx:0-7  ybx:80-87
+B4 x Y1   bbx:8-15  ybx:88-95
+B4 x Y2   bbx:16-23  ybx:96-103
+B4 x Y1   bbx:24-31  ybx:104-111
+B4 x Y0   bbx:32-39  ybx:112-119
+B4 x Y2   bbx:40-47  ybx:0-7
+B4 x Y1   bbx:48-55  ybx:8-15
+B4 x Y1   bbx:56-63  ybx:16-23
+B4 x Y2   bbx:64-71  ybx:24-31
+B4 x Y1   bbx:72-79  ybx:32-39
+B4 x Y1   bbx:80-87  ybx:40-47
+B4 x Y2   bbx:88-95  ybx:48-55
+B4 x Y1   bbx:96-103  ybx:56-63
+B4 x Y1   bbx:104-111  ybx:64-71
+B0 x Y2   bbx:112-119  ybx:72-79
+sum: 56 19
+18761:  B[444] x Y[112] (by STAR bXing no. & odd spin flips)
+18761:  B[333] x Y[122] (by bunch no. & no spin flips)
+
+fill 18763
+B4 x Y1   bbx:0-7  ybx:80-87
+B4 x Y1   bbx:8-15  ybx:88-95
+B4 x Y1   bbx:16-23  ybx:96-103
+B4 x Y1   bbx:24-31  ybx:104-111
+B4 x Y0   bbx:32-39  ybx:112-119
+B4 x Y1   bbx:40-47  ybx:0-7
+B4 x Y1   bbx:48-55  ybx:8-15
+B4 x Y1   bbx:56-63  ybx:16-23
+B4 x Y1   bbx:64-71  ybx:24-31
+B4 x Y1   bbx:72-79  ybx:32-39
+B4 x Y1   bbx:80-87  ybx:40-47
+B4 x Y1   bbx:88-95  ybx:48-55
+B4 x Y1   bbx:96-103  ybx:56-63
+B4 x Y1   bbx:104-111  ybx:64-71
+B0 x Y1   bbx:112-119  ybx:72-79
+sum: 56 14
+18763:  B[444] x Y[111] (by STAR bXing no. & odd spin flips)
+18763:  B[333] x Y[222] (by bunch no. & no spin flips)
+
+fill 18764
+B3 x Y2   bbx:0-7  ybx:80-87
+B3 x Y2   bbx:8-15  ybx:88-95
+B3 x Y1   bbx:16-23  ybx:96-103
+B3 x Y2   bbx:24-31  ybx:104-111
+B3 x Y0   bbx:32-39  ybx:112-119
+B3 x Y1   bbx:40-47  ybx:0-7
+B3 x Y2   bbx:48-55  ybx:8-15
+B3 x Y2   bbx:56-63  ybx:16-23
+B3 x Y1   bbx:64-71  ybx:24-31
+B3 x Y2   bbx:72-79  ybx:32-39
+B3 x Y2   bbx:80-87  ybx:40-47
+B3 x Y1   bbx:88-95  ybx:48-55
+B3 x Y2   bbx:96-103  ybx:56-63
+B3 x Y2   bbx:104-111  ybx:64-71
+B0 x Y1   bbx:112-119  ybx:72-79
+sum: 42 23
+18764:  B[333] x Y[221] (by STAR bXing no. & odd spin flips)
+18764:  B[444] x Y[211] (by bunch no. & no spin flips)
+
+fill 18765
+B2 x Y4   bbx:0-7  ybx:80-87
+B2 x Y4   bbx:8-15  ybx:88-95
+B2 x Y4   bbx:16-23  ybx:96-103
+B2 x Y4   bbx:24-31  ybx:104-111
+B2 x Y0   bbx:32-39  ybx:112-119
+B2 x Y4   bbx:40-47  ybx:0-7
+B2 x Y4   bbx:48-55  ybx:8-15
+B2 x Y4   bbx:56-63  ybx:16-23
+B2 x Y4   bbx:64-71  ybx:24-31
+B2 x Y4   bbx:72-79  ybx:32-39
+B2 x Y4   bbx:80-87  ybx:40-47
+B2 x Y4   bbx:88-95  ybx:48-55
+B2 x Y4   bbx:96-103  ybx:56-63
+B2 x Y4   bbx:104-111  ybx:64-71
+B0 x Y4   bbx:112-119  ybx:72-79
+sum: 28 56
+18765:  B[222] x Y[444] (by STAR bXing no. & odd spin flips)
+18765:  B[111] x Y[333] (by bunch no. & no spin flips)
+
+fill 18766
+B1 x Y4   bbx:0-7  ybx:80-87
+B2 x Y4   bbx:8-15  ybx:88-95
+B2 x Y4   bbx:16-23  ybx:96-103
+B1 x Y4   bbx:24-31  ybx:104-111
+B2 x Y0   bbx:32-39  ybx:112-119
+B2 x Y4   bbx:40-47  ybx:0-7
+B1 x Y4   bbx:48-55  ybx:8-15
+B2 x Y4   bbx:56-63  ybx:16-23
+B2 x Y4   bbx:64-71  ybx:24-31
+B1 x Y4   bbx:72-79  ybx:32-39
+B2 x Y4   bbx:80-87  ybx:40-47
+B2 x Y4   bbx:88-95  ybx:48-55
+B1 x Y4   bbx:96-103  ybx:56-63
+B2 x Y4   bbx:104-111  ybx:64-71
+B0 x Y4   bbx:112-119  ybx:72-79
+sum: 23 56
+18766:  B[122] x Y[444] (by STAR bXing no. & odd spin flips)
+18766:  B[211] x Y[333] (by bunch no. & no spin flips)
+

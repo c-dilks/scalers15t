@@ -1,0 +1,37 @@
+#!/bin/bash
+# reads all scalers in a condor job
+
+f="reader.bat"
+outdir="datfiles"
+indir="sca2015t"
+
+echo "Executable = scaler2_reader_bit.exe" > $f
+echo "Universe = vanilla" >> $f
+echo "notification = never" >> $f
+echo "getenv = True" >> $f
+echo "+Experiment = \"star\"" >> $f
+echo "+Job_Type = \"cas\"" >> $f
+echo  >> $f
+
+mkdir -p log
+rm log/*
+set i=0
+for file in $indir/*.dat; do
+  runnum=$(echo $file | sed 's/^.*run//g' | cut -c1-8)
+  grepstr=$(grep ${runnum} <<< $(ls datfiles/))
+  if [ -z "$grepstr" ]; then
+    echo "Arguments = $file" >> $f
+    echo "Log = log/run$runnum.log" >> $f
+    echo "Output = log/run$runnum.out" >> $f
+    echo "Error = log/run$runnum.err" >> $f
+    echo "Queue" >> $f
+    echo >> $f
+    let i++
+  fi
+done
+
+if [ $i > 0 ]; then
+  condor_submit $f
+else
+  echo "no new runs to read"
+fi

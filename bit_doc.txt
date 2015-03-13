@@ -1,0 +1,60 @@
+run15 pp200 transverse bd4 32-bit output
+========================================
+
+Scaler Bit Map
+--------------
+
+InputName  Pin      Bit  Trigger
+---------  ---      ---  -------
+BB101IN    14  -->  0    BBCE
+BB101IN    15  -->  1    BBCW
+BB102IN    14  -->  2    BBClargeTileHitE
+BB102IN    15  -->  3    BBClargeTileHitW
+VP101IN    14  -->  4    VPDE
+VP101IN    15  -->  5    VPDW
+ZD101IN    12  -->  6    ZDCfrontE
+ZD101IN    14  -->  7    ZDCfrontW
+ZD101IN    13  -->  8    ZDCbackE
+ZD101IN    15  -->  9    ZDCbackW
+ZD101IN    10  -->  10   ZDCE
+ZD101IN    11  -->  11   ZDCW
+VT201IN    6   -->  12   ZDCX
+VT201IN    0   -->  13   BBCX
+VT201IN    11  -->  14   VPDX
+REVTICKIN  1   -->  15
+REVTICKIN  2   -->  16
+REVTICKIN  3   -->  17
+TTLIN      13  -->  18
+TTLIN      14  -->  19
+TTLIN      15  -->  20
+REVTICKIN  0   -->  21
+VT201IN    0   -->  22
+VT201IN    0   -->  23
+RCCIN      0   -->  24
+bXing counter  -->  25
+bXing counter  -->  26
+bXing counter  -->  27
+bXing counter  -->  28
+bXing counter  -->  29
+bXing counter  -->  30
+bXing counter  -->  31
+
+
+Scaler bit combinations
+-----------------------
+
+                o-----o---o---o---||------o------o------o------o------o------o------o------o------o
+                | 3bc | x | w | e || BBCE | BBCW | BBCX # ZDCE | ZDCW | ZDCX # VPDE | VPDW | VPDX |
+                o-----+---+---+---||------+------+------#------+------+------#------+------+------o
+       zero --> |  0  | 0 | 0 | 0 ||      |      |      #      |      |      #      |      |      |
+                o-----+---+---+---||------+------+------#------+------+------#------+------+------o
+   logicals --> |  1  | 0 | 0 | 1 ||  1   |      |      #  1   |      |      #  1   |      |      |
+                |  2  | 0 | 1 | 0 ||      |  1   |      #      |  1   |      #      |  1   |      |
+                |  7  | 1 | 1 | 1 ||  1   |  1   |  1   #  1   |  1   |  1   #  1   |  1   |  1   |
+                o-----+---+---+---||------+------+------#------+------+------#------+------+------o
+ illogicals --> |  3  | 0 | 1 | 1 ||  1   |  1   |  1   #  1   |  1   |  1   #  1   |  1   |  1   |
+                |  4  | 1 | 0 | 0 ||      |      |      #      |      |      #      |      |      |
+                |  5  | 1 | 0 | 1 ||  1   |      |      #  1   |      |      #  1   |      |      |
+                |  6  | 1 | 1 | 0 ||      |  1   |      #      |  1   |      #      |  1   |      |
+                o-----o---o---o---||------o------o------o------o------o------o------o------o------o
+

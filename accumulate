@@ -1,0 +1,59 @@
+#!/bin/bash
+# collects all the datfiles produced by "read_scalers"
+# and appends run number and fill number to each line
+
+dir="datfiles"
+f="acc.dat"
+
+# delete any remaining tmp files
+touch $dir/a.tmp
+rm $dir/*.tmp
+
+echo "building acc file..."
+pushd $dir > /dev/null
+touch $f
+rm $f
+
+# loop over all datfiles
+i=0
+filli=0
+filltmp=0
+for file in $(ls run*.dat); do
+  runnum=$(echo $file | cut -c4-11)
+  grepstr=$(grep $runnum ../culled_run_list.txt | awk '{print $3" "$4" "$5}');
+  fill=$(echo $grepstr | awk '{print $1}')
+  runtime=$(echo $grepstr | awk '{print $2}')
+  freq=$(echo $grepstr | awk '{print $3}')
+
+  # check if there's a fill number
+  if [ -n "$fill" -a -f ../spinpat/$fill.spin ]; then
+    if [ ! -e spin$fill.tmp ]; then
+      # obtain spin patterns
+      cat ../spinpat/$fill.spin | awk '{print $2" "$3}' > spin$fill.tmp
+    fi
+    if [ ! -e $file.tmp ]; then
+      # add two columns to dat file with spin info
+      paste $file spin$fill.tmp > $file.tmp
+    fi
+    # iterate indices
+    let i++
+    if [ "$fill" -ne "$filltmp" ]; then
+      filltmp=$fill
+      let filli++
+    fi
+    echo "$i $runnum $filli $fill $runtime" 
+    # add columns for run index, run #, and fill # and write to acc file
+    while read line; do
+      echo "$i $runnum $filli $fill $runtime $freq $line" >> $f
+    done < $file.tmp
+  fi
+done
+popd > /dev/null
+
+# remove temporary files
+rm $dir/*.tmp
+#rm fill_time.txt
+
+echo "$dir/$f written"
+
+root -b -q 'mk_tree.C("'$dir/$f'")'

@@ -1,0 +1,2 @@
+#!/bin/bash
+scp dilks@rftpexp.rhic.bnl.gov:/gpfs01/star/scratch/dilks/sca2015/*.dat sca2015t/

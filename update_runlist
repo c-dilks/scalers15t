@@ -1,0 +1,2 @@
+#!/bin/bash
+scp dilks@rftpexp.rhic.bnl.gov:/star/u/dilks/scalers2015/culled_run_list.txt ./
