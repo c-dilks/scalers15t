@@ -16,6 +16,8 @@ void sumTree(const char * filename="counts.root")
   TFile * infile = new TFile(filename,"READ");
   TTree * str = (TTree*) infile->Get("sca");
 
+  system("touch pattern_log; rm pattern_log");
+
   // read counts.root tree
   Int_t i,runnum,fi,fill,bx,blue,yell;
   Double_t t,freq,bbce,bbcw,bbcx,zdce,zdcw,zdcx,vpde,vpdw,vpdx,tot_bx;

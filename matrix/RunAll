@@ -1,0 +1,13 @@
+#!/bin/bash
+# runs BF.C for multiple cases
+
+var="mul"
+#var="rsc"
+
+root.exe -b -q 'BF.C('\"$var\"',1,0,2,2,false,0)'
+root.exe -b -q 'BF.C('\"$var\"',1,1,2,2,false,0)'
+root.exe -b -q 'BF.C('\"$var\"',1,2,2,2,false,0)'
+root.exe -b -q 'BF.C('\"$var\"',2,0,2,2,false,0)'
+root.exe -b -q 'BF.C('\"$var\"',2,1,2,2,false,0)'
+root.exe -b -q 'BF.C('\"$var\"',1,0,2,0,false,0)'
+root.exe -b -q 'BF.C('\"$var\"',1,1,2,1,false,0)'

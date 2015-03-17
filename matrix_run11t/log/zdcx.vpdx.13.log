@@ -1,0 +1,28 @@
+  *******************************************
+  *                                         *
+  *        W E L C O M E  to  R O O T       *
+  *                                         *
+  *   Version   5.34/23   7 November 2014   *
+  *                                         *
+  *  You are welcome to visit our Web site  *
+  *          http://root.cern.ch            *
+  *                                         *
+  *******************************************
+
+ROOT 5.34/23 (v5-34-23@v5-34-23, Nov 07 2014, 15:13:40 on linuxx8664gcc)
+
+CINT/ROOT C/C++ Interpreter version 5.18.00, July 2, 2010
+Type ? for help. Commands must be C++ statements.
+Enclose multiple statements between { }.
+
+Processing BF.C("mul",1,2,2,2,false,13)...
+
+--------------------------
+ratio r^i = zdcx / vpdx
+--------------------------
+
+checking matx...
+computing r^i for each run and bXing...
+computing sigma functions...
+ [+] specificPattern=13
+pats/fit_result.zdcx.vpdx.pat13.root created

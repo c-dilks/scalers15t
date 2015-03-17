@@ -1,0 +1,25 @@
+#!/bin/bash
+# updates htmlfiles pngs, pdfs, txt files, etc
+
+echo "executing sumTree..."
+root -b -q sumTree.C
+
+echo "producing rellum canvases..."
+./rellum_all
+
+echo "producing rellum data tree..."
+root -b -q combineAll.C
+root -b -q make_run_list.C
+
+echo "producing spin patterns pdf..."
+root -b -q draw_spin_patterns.C
+
+echo "producing bit_combos..."
+root -b -q bit_combinations.C
+
+echo "producing nbx_check..."
+root -b -q nbx_check.C
+root -b -q nbx_check_2.C
+
+echo "copying files to htmlfiles..."
+./copyToHtmlfiles

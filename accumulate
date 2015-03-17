@@ -2,6 +2,7 @@
 # collects all the datfiles produced by "read_scalers"
 # and appends run number and fill number to each line
 
+
 dir="datfiles"
 f="acc.dat"
 
@@ -24,6 +25,8 @@ for file in $(ls run*.dat); do
   fill=$(echo $grepstr | awk '{print $1}')
   runtime=$(echo $grepstr | awk '{print $2}')
   freq=$(echo $grepstr | awk '{print $3}')
+  
+
 
   # check if there's a fill number
   if [ -n "$fill" -a -f ../spinpat/$fill.spin ]; then

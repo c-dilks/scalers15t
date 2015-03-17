@@ -1,0 +1,31 @@
+#!/bin/bash
+# remakes bXing distributions in pdf_bXings_fills_{log,lin,lin_zoom}
+# and then rebuilds counts.root with the kicked bunches
+
+# clear kicked bXings list and rebuild counts.root
+echo "clearing list of kicked bXings and running accumulate..."
+echo "0 0 0" > kicked
+./accumulate
+echo "rellum_fills drawLog=0 zoomIn=1..."
+./rellum_fills 0 1
+./wait_for_condor
+./ghost_script_fills
+mv pdf_bXings_fills{/*.pdf,_lin_zoom/}
+echo "rellum_fills drawLog=1 zoomIn=0..."
+./rellum_fills 1 0
+./wait_for_condor
+./ghost_script_fills
+mv pdf_bXings_fills{/*.pdf,_log/}
+echo "rellum_fills drawLog=0 zoomIn=0..."
+./rellum_fills 0 0
+./wait_for_condor
+./ghost_script_fills
+mv pdf_bXings_fills{/*.pdf,_lin/}
+
+# now rebuild counts.root with the kicked bXings
+echo "rebuilding list of kicked bXings and reproducing counts.root..."
+./bunch_kicker
+./accumulate
+echo ""
+echo "pdf_bXings_fills_{lin,lin_zoom,log}/*.pdf produced"
+echo "counts.root produced with kicked bXings"

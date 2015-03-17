@@ -15,3 +15,9 @@ run 15t relative luminosity
 - Update `spinpat/*.spin` files by running `spin_cogging`
 
 - Execute `read_scalers` to produce datfiles which haven't been produced yet
+
+
+## Major Changes since Run13
+
+- `accumulate`: added run QA where for each logical scaler bit, the sum of counts for all
+  bXings must be greater than the variable `THRESHOLD`

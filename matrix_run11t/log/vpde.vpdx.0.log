@@ -1,0 +1,31 @@
+  *******************************************
+  *                                         *
+  *        W E L C O M E  to  R O O T       *
+  *                                         *
+  *   Version   5.34/23   7 November 2014   *
+  *                                         *
+  *  You are welcome to visit our Web site  *
+  *          http://root.cern.ch            *
+  *                                         *
+  *******************************************
+
+ROOT 5.34/23 (v5-34-23@v5-34-23, Nov 07 2014, 15:13:40 on linuxx8664gcc)
+
+CINT/ROOT C/C++ Interpreter version 5.18.00, July 2, 2010
+Type ? for help. Commands must be C++ statements.
+Enclose multiple statements between { }.
+
+Processing BF.C("mul",2,0,2,2,false,0)...
+Warning in <Fit>: Fit data is empty 
+Warning in <Fit>: Fit data is empty 
+Warning in <Fit>: Fit data is empty 
+Error: illegal pointer to class object GetFunction("pol0") 0x0 2102  BF.C:426:
+*** Interpreter error recovered ***
+
+--------------------------
+ratio r^i = vpde / vpdx
+--------------------------
+
+checking matx...
+computing r^i for each run and bXing...
+computing sigma functions...

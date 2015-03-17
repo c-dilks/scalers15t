@@ -1,5 +1,7 @@
 #!/bin/bash
 #
+#########################################
+# if run_randomizer==1:
 # first loops through bXing distribution for a fill, counting the number of
 # each spin bit; arrays called arr0, arr1, arr2, arr3 are filled with 
 #  [fill] [bx] [spinbit]
@@ -13,98 +15,13 @@
 # the generated random numbers correspond to array indices of arr{0,1,2,3};
 # the chosen bXings to remove are added to the file "kicked" and some
 # diagnostic information is echoed to "kicked_stat"
+#########################################
 
 run_randomizer=0
 
 # manually removed bunches
 > kicked_manual
-echo 17384 29 >> kicked_manual
-echo 17384 30 >> kicked_manual 
-echo 17384 117 >> kicked_manual # in abort gap
-echo 17416 79 >> kicked_manual
-echo 17491 105 >> kicked_manual
-echo 17519 94 >> kicked_manual  # only ~order of magnitude lower
-echo 17519 109 >> kicked_manual # only ~order of magnitude lower
-echo 17529 97 >> kicked_manual
-echo 17534 112 >> kicked_manual # in abort gap
-echo 17553 73 >> kicked_manual
-echo 17554 7 >> kicked_manual
-echo 17554 14 >> kicked_manual
-echo 17555 61 >> kicked_manual
-echo 17576 94 >> kicked_manual
-
-# low proton count in post abortgap bXings
-echo 17512 0 >> kicked_manual
-echo 17512 1 >> kicked_manual
-#echo 17512 2 >> kicked_manual
-#echo 17512 3 >> kicked_manual
-echo 17512 40 >> kicked_manual
-echo 17512 41 >> kicked_manual
-#echo 17512 42 >> kicked_manual
-#echo 17512 43 >> kicked_manual
-
-echo 17513 0 >> kicked_manual
-echo 17513 1 >> kicked_manual
-#echo 17513 2 >> kicked_manual
-#echo 17513 3 >> kicked_manual
-echo 17513 40 >> kicked_manual
-echo 17513 41 >> kicked_manual
-#echo 17513 42 >> kicked_manual
-#echo 17513 43 >> kicked_manual
-
-echo 17514 0 >> kicked_manual
-echo 17514 1 >> kicked_manual
-#echo 17514 2 >> kicked_manual
-#echo 17514 3 >> kicked_manual
-echo 17514 40 >> kicked_manual
-echo 17514 41 >> kicked_manual
-#echo 17514 42 >> kicked_manual
-#echo 17514 43 >> kicked_manual
-
-echo 17515 0 >> kicked_manual
-echo 17515 1 >> kicked_manual
-#echo 17515 2 >> kicked_manual
-#echo 17515 3 >> kicked_manual
-echo 17515 40 >> kicked_manual
-echo 17515 41 >> kicked_manual
-#echo 17515 42 >> kicked_manual
-#echo 17515 43 >> kicked_manual
-
-echo 17517 0 >> kicked_manual
-echo 17517 1 >> kicked_manual
-#echo 17517 2 >> kicked_manual
-#echo 17517 3 >> kicked_manual
-echo 17517 40 >> kicked_manual
-echo 17517 41 >> kicked_manual
-#echo 17517 42 >> kicked_manual
-#echo 17517 43 >> kicked_manual
-
-echo 17518 0 >> kicked_manual
-echo 17518 1 >> kicked_manual
-#echo 17518 2 >> kicked_manual
-#echo 17518 3 >> kicked_manual
-echo 17518 40 >> kicked_manual
-echo 17518 41 >> kicked_manual
-#echo 17518 42 >> kicked_manual
-#echo 17518 43 >> kicked_manual
-
-echo 17519 0 >> kicked_manual
-echo 17519 1 >> kicked_manual
-#echo 17519 2 >> kicked_manual
-#echo 17519 3 >> kicked_manual
-echo 17519 40 >> kicked_manual
-echo 17519 41 >> kicked_manual
-#echo 17519 42 >> kicked_manual
-#echo 17519 43 >> kicked_manual
-
-echo 17520 0 >> kicked_manual
-echo 17520 1 >> kicked_manual
-#echo 17520 2 >> kicked_manual
-#echo 17520 3 >> kicked_manual
-echo 17520 40 >> kicked_manual
-echo 17520 41 >> kicked_manual
-#echo 17520 42 >> kicked_manual
-#echo 17520 43 >> kicked_manual
+echo 18764 16 >> kicked_manual
 
 
 

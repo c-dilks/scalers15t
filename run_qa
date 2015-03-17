@@ -1,0 +1,60 @@
+#!/bin/bash
+# basic run QA:
+# sum logical bits and check if they're above THRESHOLD 
+# (using bc to add rather than awk, since bc has arbitrary precision)
+#
+# if logical bit sums are not all above THRESHOLD, mark the run as "bad" by
+# appending ".bad" to it's filename, so that `accumulate` doesn't include it in 
+# counts.root
+
+THRESHOLD=100000
+
+dir="datfiles"
+pushd $dir > /dev/null
+
+for file in $(ls run*.dat); do
+  echo "summing logicals for run $(echo $file | cut -c4-11)..."
+  bbc1sum=0
+  bbc2sum=0
+  bbc7sum=0
+  zdc1sum=0
+  zdc2sum=0
+  zdc7sum=0
+  vpd1sum=0
+  vpd2sum=0
+  vpd7sum=0
+  goodrun=1
+  while read line; do
+    bbc1sum=$(echo "$bbc1sum+$(echo $line | awk '{print $3}')" | bc)
+    bbc2sum=$(echo "$bbc2sum+$(echo $line | awk '{print $4}')" | bc)
+    bbc7sum=$(echo "$bbc7sum+$(echo $line | awk '{print $9}')" | bc)
+
+    zdc1sum=$(echo "$zdc1sum+$(echo $line | awk '{print $11}')" | bc)
+    zdc2sum=$(echo "$zdc2sum+$(echo $line | awk '{print $12}')" | bc)
+    zdc7sum=$(echo "$zdc7sum+$(echo $line | awk '{print $17}')" | bc)
+
+    vpd1sum=$(echo "$vpd1sum+$(echo $line | awk '{print $19}')" | bc)
+    vpd2sum=$(echo "$vpd2sum+$(echo $line | awk '{print $20}')" | bc)
+    vpd7sum=$(echo "$vpd7sum+$(echo $line | awk '{print $25}')" | bc)
+  done < $file
+
+  if [ $bbc1sum -lt $THRESHOLD ]; then goodrun=0; echo " [-] bbc1sum = $bbc1sum < $THRESHOLD"; fi
+  if [ $bbc2sum -lt $THRESHOLD ]; then goodrun=0; echo " [-] bbc2sum = $bbc2sum < $THRESHOLD"; fi
+  if [ $bbc7sum -lt $THRESHOLD ]; then goodrun=0; echo " [-] bbc7sum = $bbc7sum < $THRESHOLD"; fi
+
+  if [ $zdc1sum -lt $THRESHOLD ]; then goodrun=0; echo " [-] zdc1sum = $zdc1sum < $THRESHOLD"; fi
+  if [ $zdc2sum -lt $THRESHOLD ]; then goodrun=0; echo " [-] zdc2sum = $zdc2sum < $THRESHOLD"; fi
+  if [ $zdc7sum -lt $THRESHOLD ]; then goodrun=0; echo " [-] zdc7sum = $zdc7sum < $THRESHOLD"; fi
+
+  if [ $vpd1sum -lt $THRESHOLD ]; then goodrun=0; echo " [-] vpd1sum = $vpd1sum < $THRESHOLD"; fi
+  if [ $vpd2sum -lt $THRESHOLD ]; then goodrun=0; echo " [-] vpd2sum = $vpd2sum < $THRESHOLD"; fi
+  if [ $vpd7sum -lt $THRESHOLD ]; then goodrun=0; echo " [-] vpd7sum = $vpd7sum < $THRESHOLD"; fi
+
+  if [ $goodrun -eq 0 ]; then
+    echo " [-] bad run" 
+    mv $file{,.bad}
+  else
+    echo " [+] good run; all logicals > $THRESHOLD"
+  fi
+done
+popd > /dev/null

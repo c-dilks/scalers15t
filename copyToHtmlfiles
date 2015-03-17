@@ -1,0 +1,25 @@
+#!/bin/bash
+# copies relevant files from ./ to ./htmlfiles/
+
+dir="htmlfiles"
+
+cp -v rtree.root $dir/
+cp -v rdat_i.root $dir/
+cp -v rdat_fi.root $dir/
+cp -v rdat_bx.root $dir/
+cp -v pathologies.txt $dir/
+cp -v pattern.pdf $dir/
+cp -v bit_doc.txt $dir/
+cp -v bit_map.pdf $dir/
+cp -rv bit_combos $dir/
+cp -v run_table.txt $dir/
+cp -rv png_rellum $dir/
+cp -rv pdf_bXings_fills_log $dir/
+cp -rv pdf_bXings_fills_lin $dir/
+cp -rv pdf_bXings_fills_lin_zoom $dir/
+cp -rv nbx_check $dir/
+
+touch ${dir}.tar.gz
+rm ${dir}.tar.gz
+tar czvf ${dir}{.tar.gz,}
+echo "new tarball produced!"

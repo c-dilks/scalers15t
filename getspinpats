@@ -46,4 +46,9 @@ echo "missing fills:"
 cat $SPINPAT/badfills
 #rm $SPINPAT/badfills
 
-exit
+badstr=""
+while read line; do
+  badstr="${badstr}|${line}"
+done < $SPINPAT/badfills
+grep -vE "$(echo $badstr | sed 's/^|//g')" fill.txt > fill2.txt
+mv fill{2,}.txt
