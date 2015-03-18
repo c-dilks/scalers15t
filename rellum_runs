@@ -7,8 +7,6 @@ zoomIn=0
 
 cat fill.txt | awk '{print $1}' | uniq > run_list.txt
 
-> cons_study
-> matrix_out
 
 
 job="filldep.bat"

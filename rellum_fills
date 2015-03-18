@@ -12,8 +12,6 @@ fi
 
 cat fill.txt | awk '{print $2}' | uniq > fill_list.txt
 
-> cons_study
-> matrix_out
 
 
 job="filldep.bat"

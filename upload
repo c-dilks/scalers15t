@@ -1,0 +1,4 @@
+#!/bin/bash
+# uploads htmlfiles.tar.gz to rcas
+
+scp htmlfiles.tar.gz dilks@rftpexp.rhic.bnl.gov:~/

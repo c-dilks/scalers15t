@@ -18,6 +18,7 @@ cp -rv pdf_bXings_fills_log $dir/
 cp -rv pdf_bXings_fills_lin $dir/
 cp -rv pdf_bXings_fills_lin_zoom $dir/
 cp -rv nbx_check $dir/
+cp -v pattern_log.txt $dir/
 
 touch ${dir}.tar.gz
 rm ${dir}.tar.gz

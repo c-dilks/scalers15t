@@ -28,13 +28,14 @@ make some subdirectories such as `datfiles`; scan through `doc_diagram.pdf`
 - Execute `read_scalers` to produce datfiles which haven't been produced yet
 
 - Execute `run_qa` and the runs which do not pass the QA will be moved to `datfiles/badruns`;
-  if you change anything in `run_qa`, make sure you move all files in `datfiles/badruns` back
-  to `datfiles/`
+  this script only QAs runs which have run number greater than that in `lastrun_qa`
+  - if you change anything in `run_qa`, make sure you move all files in `datfiles/badruns` back
+    to `datfiles/`
 
 - You now have a set of `datfiles` and you are ready to update the rellum webpage; 
   see the "Updating Relative Luminosity Webpage" page of `doc_diagram.pdf`
 
-  - removing bad bXings and update `counts.root` by doing the following:
+  - first remove bad bXings and update `counts.root` by doing the following:
 
     - execute `remake_bXing_dists` to remake all bXing distributions
     - scan through `pdf_bXings_fills_{lin,log,lin_zoom}/*.pdf` and look for any anomalies; 
@@ -179,7 +180,7 @@ make some subdirectories such as `datfiles`; scan through `doc_diagram.pdf`
   - builds `sums.root` which sums the counts in `counts.root` for each run
   - also recognizes the spin pattern which is used; see the script comments
     for the variable `subpattern` for further details
-  - details about the pattern recognition are written out to `pattern_log`
+  - details about the pattern recognition are written out to `pattern_log.txt`
 
 - `nbx_check.C`
   - compares total number of bunch crossings divided by clock frequency to 

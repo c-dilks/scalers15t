@@ -16,7 +16,7 @@ void sumTree(const char * filename="counts.root")
   TFile * infile = new TFile(filename,"READ");
   TTree * str = (TTree*) infile->Get("sca");
 
-  system("touch pattern_log; rm pattern_log");
+  system("touch pattern_log.txt; rm pattern_log.txt");
 
   // read counts.root tree
   Int_t i,runnum,fi,fill,bx,blue,yell;
@@ -235,8 +235,8 @@ void sumTree(const char * filename="counts.root")
         pattern_no_cdev += ((Int_t)yell_ok) * Flip(yell_subp[c+5]) * pow(10,2-c);
       };
 
-      // print out pattern_log
-      gSystem->RedirectOutput("pattern_log");
+      // print out pattern_log.txt
+      gSystem->RedirectOutput("pattern_log.txt");
       printf("fill %d\n",fill);
       for(Int_t z=0; z<15; z++) 
       {
@@ -249,7 +249,7 @@ void sumTree(const char * filename="counts.root")
       printf("%d:  B[%d%d%d] x Y[%d%d%d] <%d> (@ STAR)\n",
         fill,blue_subp[0],blue_subp[1],blue_subp[2],
         yell_subp[0],yell_subp[1],yell_subp[2],pattern_no);
-      printf("%d:  B[%d%d%d] x Y[%d%d%d] <%d>(@ CDEV)\n\n",
+      printf("%d:  B[%d%d%d] x Y[%d%d%d] <%d> (@ CDEV)\n\n",
         fill,Flip(blue_subp[0]),Flip(blue_subp[1]),Flip(blue_subp[2]),
         Flip(yell_subp[5]),Flip(yell_subp[6]),Flip(yell_subp[7]),pattern_no_cdev);
       gSystem->RedirectOutput(0);

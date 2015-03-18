@@ -1145,6 +1145,8 @@ void rellum4(const char * var="i",Bool_t printPNGs=0,
   Double_t R_max[3][3][10];
   Double_t F_min[3][3][5];
   Double_t F_max[3][3][5];
+  Double_t Fr_max[3][5];
+  Double_t Fr_min[3][5];
   Double_t counts[3][3]; // [tbit] [cbit] 
   Double_t rate_array[3][3][var_bins_const]; // [tbit] [cbit] [run index]
   Double_t rate_array_max[3][3];
@@ -1217,9 +1219,13 @@ void rellum4(const char * var="i",Bool_t printPNGs=0,
             sprintf(rate_rsr_n[t][s],"rate_rsr_%s_s%d",tbit[t],s);
             sprintf(rate_rsr_t[t][s],
               "%s #Omega*rsc/rawx vs. %sx acc+mul corrected rate -- %s",tbit[t],tbit[t],leg);
+            Fr_min[t][s] = rsr_d[t][s]->GetMinimum();
+            Fr_max[t][s] = rsr_d[t][s]->GetMaximum();
+            Fr_min[t][s] -= Fr_min[t][s] * 0.1;
+            Fr_max[t][s] += Fr_max[t][s] * 0.1;
             rate_rsr[t][s] = new TH2D(rate_rsr_n[t][s],rate_rsr_t[t][s],
               10,0,rate_array_max[t][2],
-              100,0,10);
+              100,Fr_min[t][s],Fr_max[t][s]);
             for(Int_t b=1; b<var_bins; b++)
             {
               zzz = rsr_d[t][s]->GetBinContent(b);
