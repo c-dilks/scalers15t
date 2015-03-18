@@ -52,7 +52,7 @@ for file in $(ls run*.dat); do
 
   if [ $goodrun -eq 0 ]; then
     echo " [-] bad run" 
-    mv $file{,.bad}
+    mv $file badruns/
   else
     echo " [+] good run; all logicals > $THRESHOLD"
   fi
