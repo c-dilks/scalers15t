@@ -19,7 +19,8 @@ set i=0
 for file in $indir/*.dat; do
   runnum=$(echo $file | sed 's/^.*run//g' | cut -c1-8)
   grepstr=$(grep ${runnum} <<< $(ls datfiles/))
-  if [ -z "$grepstr" ]; then
+  badstr=$(grep ${runnum} <<< $(ls datfiles/badruns/))
+  if [ -z "$grepstr" -a -z "$badstr" ]; then
     echo "Arguments = $file" >> $f
     echo "Log = log/run$runnum.log" >> $f
     echo "Output = log/run$runnum.out" >> $f

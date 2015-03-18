@@ -9,7 +9,7 @@ echo "producing rellum canvases..."
 
 echo "producing rellum data tree..."
 root -b -q combineAll.C
-root -b -q make_run_list.C
+root -b -q make_run_table.C
 
 echo "producing spin patterns pdf..."
 root -b -q draw_spin_patterns.C

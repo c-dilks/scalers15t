@@ -888,7 +888,7 @@ void rellum4(const char * var="i",Bool_t printPNGs=0,
             else if(uu==1) mmm[s] = rsc_d[t][s]->GetBinContent(b);
             nn_tot[s] = tot_d[s]->GetBinContent(b);
           };
-          printf("%f %f %f %f\n",nn_tot[0],nn_tot[1],nn_tot[2],nn_tot[3]);
+          //printf("%f %f %f %f\n",nn_tot[0],nn_tot[1],nn_tot[2],nn_tot[3]);
           if(nn_tot[0]*nn_tot[1]*nn_tot[2]*nn_tot[3]>0)
           {
             rrr[1] = (mmm[kPP] + mmm[kNP]) / (mmm[kPN] + mmm[kNN]);
@@ -1510,10 +1510,16 @@ void rellum4(const char * var="i",Bool_t printPNGs=0,
       {
         c_R[t][r]->GetPad(ccc)->SetGrid(1,1);
         c_R[t][r]->cd(ccc);
+        R_mul_d[t][ccc-1][r]->GetYaxis()->SetRangeUser(
+          R_mul_d[t][ccc-1][r]->GetMinimum() - 0.02,
+          R_mul_d[t][ccc-1][r]->GetMaximum() + 0.02);
         R_mul_d[t][ccc-1][r]->Draw();
       };
       c_R[t][r]->GetPad(4)->SetGrid(1,1);
       c_R[t][r]->cd(4);
+      R_rsc_d[t][r]->GetYaxis()->SetRangeUser(
+        R_rsc_d[t][r]->GetMinimum() - 0.02,
+        R_rsc_d[t][r]->GetMaximum() + 0.02);
       R_rsc_d[t][r]->Draw();
     };
   };

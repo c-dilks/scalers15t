@@ -1,6 +1,6 @@
 // builds runlist from rtree.root
 
-void make_run_list(const char * infile="rtree.root")
+void make_run_table(const char * infile="rtree.root")
 {
   TFile * tf = new TFile(infile,"READ");
   TTree * tr = (TTree*) tf->Get("rellum");

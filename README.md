@@ -3,9 +3,8 @@
 See `doc_diagram.pdf` for a flowchart of data and scripts. Rectangles are scripts to
 be executed and parallelograms are files. You need to have done the polarisation
 analysis using `polar15t` as well. Note that this `README` file serves as a more
-descriptive guide as to what each script does; see the section "Scripts" below
-for descriptions of the scripts (somewhat in order of execution). The section 
-"Files" documents what is contained in each file
+descriptive guide as to what each script does; see the section "Scripts and Files" below
+for descriptions of the scripts and data files (somewhat in order of execution).
 
 It is best to read through `doc_diagram.pdf` and search this document for details at each
 step; most of the flowcharts are read from top-left corner to bottom-left corner
@@ -52,7 +51,7 @@ make some subdirectories such as `datfiles`; scan through `doc_diagram.pdf`
     to whereve you wish
 
 
-## Scripts
+## Scripts and Files
 - `get_scaler_files`
   - uses `scp` to get files from `RCAS`
 
@@ -137,3 +136,107 @@ make some subdirectories such as `datfiles`; scan through `doc_diagram.pdf`
 - `nbx_check_2.C`
   - produces plots of the number of bXings vs. bXing number for each run, normalized so that
     the max bin is equal to unity... this is an odd structure which no one fully understands
+
+- `rellum4.C`
+  - this is the analysis script
+  - `var` is the independent variable
+    - `i` is run index, `fi` is fill index, `bx` is bXing
+  - objects in outputted `rdat{i,fi,bx}.root` file:
+    - `c_spin_pat` -- `R_spin = same spin / diff spin`
+    - `c_raw_{bbc,zdc,vpd}` = raw scaler counts vs var
+    - `c_acc_{bbc,zdc,vpd}` = accidentals corrected scaler counts vs var
+    - `c_mul_{bbc,zdc,vpd}` = multiples corrected scaler counts vs var
+    - `c_fac_{bbc,zdc,vpd}` = correction factor (mult/raw) vs var
+    - `c_R#_{bbc,zdc,vpd}` = relative luminosity vs. var
+    - `c_mean_R#` = mean rellum over EWX (bbc,zdc,vpd on same canvas)
+    - `c_R#_zdc_minus_vpd` = difference between zdc and vpd
+    - `c_deviation_R#_{bbc,zdc,vpd}` = rellum minus mean rellum
+    - `rate_dep_R#_{bbc*,zdc*,vpd*}` = rellum vs. multiples corrected rate
+    - `c_rate_fac_{bbc*,zdc*,vpd*}` = correction factor vs. multiples corrected rate
+                                     (tprofile from `rate_fac` for each spinbit)
+  - there are more notes in the header comments of this script
+
+- `rellum_all`
+  - basically used to run `rellum4.C` for various independent
+    variables etc. 
+  - outputs pngs in `png_rellum`, ready to be copied to protected area to link
+    to scalers web page
+
+- `rellum_fills [drawLog] [zoomIn]`
+  - runs `rellum4.C` for all fills separately and output pdfs in subdirectories of
+    `pdf_bXings_fills`; this is for looking at fill dependence of bXing 
+    distributions
+  - execute `ghost_script_fills` afterward to combine all the pdfs into 
+    `pdf_bXings_fills/*.pdf`
+  - produces `matrix` trees (see matrix section below)
+
+- `rellum_runs`
+  - analagous to `rellum_fills` but for run-by-run bXing distributions
+  - use `ghost_script_runs` for pdf concatenation
+  - also produces `matrix` trees (see matrix section below)
+
+- `sumTree.C`
+  - builds `sums.root` which sums the counts in `counts.root` for each run
+  - also recognizes the spin pattern which is used; see the script comments
+    for the variable `subpattern` for further details
+  - details about the pattern recognition are written out to `pattern_log`
+
+- `nbx_check.C`
+  - compares total number of bunch crossings divided by clock frequency to 
+    run time, which should be approximately equal
+  - plots are output to the `nbx_check/` subdirectory
+
+- `combineAll.C`
+  - combines the `sums.root` file with the `rdat_i.root` file to produce a final
+    relative luminosity data tree contained in `rtree.root`
+
+- `make_run_table.C`
+  - builds `run_table.txt` which is a text table of run numbers, run indices, 
+    fill numbers, and fill indices, to be copied to the webpage
+
+- `remake_bXing_dists`
+  - clears `kicked` and reruns `accumulate` to produce a `counts.root` file
+    with no kicked bXings
+  - then it runs `rellum_fills` for three different drawing settings, merges 
+    the pdfs with `ghost_script_fills` and moves them to three separate output 
+    directories: `pdf_bXings_fills_{lin,lin_zoom,log}`
+  - then it reruns `bunch_kicker` and `accumulate` to recreate `counts.root`
+    with the original kicked bXings list in the tree
+  - you may then go through these pdfs and hunt for bad bXings; if you find any
+    new ones, add them to `bunch_kicker` and re-execute `bunch_kicker` and 
+    `accumulate`
+
+- `update_htmlfiles`
+  - reruns all of the other scripts (besides `remake_bXing_dists`) to build all
+    the relevant files for the webpage; it then executs `copyToHtmlfiles` to copy
+    all relevant files into the `htmlfiles` subdirectory
+  - a tarball of `htmlfiles` is then created
+
+
+## Matrix Subdirectory: Bunch Fitting Algorithm
+
+- Running `rellum4.C` with `var="bx"` and with `specificFill>0` XOR `specificRun>0` will
+  produce `matx` tree files, found in `matrix/rootfiles/*.root`
+  - this can be done for each fill or run using `rellum_fills` or `rellum_runs`
+  - the `matx` tree contains scales, corrected scales, and correction factors for each 
+    cbit, tbit, and bXing
+- execute `hadd matrix/rootfiles/all.root matrix/rootfiles/matx*.root` to merge the matx trees
+- `DrawMatrix.C` draws the desired matrix and produces `matrix.root` and `for_mathematica`
+  - `matrix.root` contains the matx tree and the matrix `mat`
+  - `for_mathematica` contains the matrix `mat` in text form for reading with mathematica
+  - singular value decomposition (SVD) is then performed using `SVD.nb`
+- bunch fitting
+  - the main code for bunch fitting is `BF.C`, which requires `rootfiles/all.root`, 
+    `../counts.root`, and `../sums.root`
+  - you need to specify the ratio of scalers to bunch fit over
+    - numerator tbit and cbit (see `rellum4.C` for definitions of tbit and cbit)
+    - denominator tbit and cbit
+    - evaluateChiSquare = true will try to draw Chi2 profiles (not working well yet...)
+    - specificPattern != 0 will only consider the specified spin pattern
+  - it's best to just use `RunPatterns`, which runs `BF.C` under various interesting
+    conditions, for all spin patterns; the following files are produced:
+    - `fit_result.[num].[den].root`: bunch fit results for all spin patterns, where the fit
+      is done to `r^i=num/den`
+    - `pats/fit_result.[num].[den].pat[pat].root`: bunch fit results for spin pattern `pat`
+    - `colour.[num].[den].root`: bunch fit results, with colour code according to spin 
+      patterns (see the TCanvas `legend` in the ROOT file)
