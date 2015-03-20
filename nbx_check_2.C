@@ -29,7 +29,7 @@ void nbx_check_2(const char * filename="counts.root")
     tr->Project(h_n[i],"bx",cut[i]);
 
     max = h[i]->GetMaximum();
-    h[i]->Scale(1/max);
+    //h[i]->Scale(1/max);
 
     c->Clear();
     c->SetGrid(1,1);

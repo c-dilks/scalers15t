@@ -39,9 +39,8 @@ make some subdirectories such as `datfiles`; scan through `doc_diagram.pdf`
 
     - execute `remake_bXing_dists` to remake all bXing distributions
     - scan through `pdf_bXings_fills_{lin,log,lin_zoom}/*.pdf` and look for any anomalies; 
-      if you find any, add them to both `pathologies.txt` and `bunch_kicker` 
-      (in `bunch_kicker`, they are lines like `echo [fill] [bXing] >> kicked_manual`
-    - if you added any new bXings to `bunch_kicker`, you will now need to re-execute
+      if you find any, add them to both `pathologies.txt`  
+    - if you added any new bXings to `patholigies.txt`, you will now need to re-execute
       `bunch_kicker` and `accumulate` to produce a new `counts.root` file; if no new bad
       bXings were found in the update, you don't need to do this as `remake_bXing_dists`
       will have already produce a new `counts.root` file for you
@@ -89,8 +88,7 @@ make some subdirectories such as `datfiles`; scan through `doc_diagram.pdf`
   - since STAR spin is opposite that of CDEV spin, we implement a sign filp here
 
 - `bunch_kicker` 
-  - marks bad bXings; if you manually mark any as bad, you must have this script echo them
-    to `kicked_manual` during execution
+  - marks bad bXings; if you manually mark any as bad, you must do so in `pathologies.txt`
   - if `run_randomizer=1` then it kicks the minimum amount of additional bXings such that
     the number of spin bits for the fill are equalized (see comments in `bunch_kicker` 
     for more details)

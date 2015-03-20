@@ -257,7 +257,13 @@
 <li>tau := total bXings during run / bXing rate
 <li><a href='nbx_check/ctt.png'>tau vs. run time</a></li>
 <li><a href='nbx_check/frac_canv.png'>(run time - tau) / tau vs. run index</a></li>
-<li><a href='nbx_check/nbx_vs_bxing.pdf'>total bXings vs. bXing [PDF]</a> -- normalized so max bin = 1</li>
+<li><a href='nbx_check/nbx_vs_bxing.pdf'>total bXings vs. bXing [PDF]</a></li>
+<ul>
+  <li>Sigmoid/staircase structure fixed on run 16078055</li>
+  <li>Now bXing 0 counts 50-100 more times than other bXings, presumably at 
+      the start of a run</li>
+  <li>There is also now a step of 1 count at run stop</li>
+</ul>
 </ul>
 
 

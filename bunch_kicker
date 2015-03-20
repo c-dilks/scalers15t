@@ -19,11 +19,6 @@
 
 run_randomizer=0
 
-# manually removed bunches
-> kicked_manual
-echo 18764 16 >> kicked_manual
-
-
 
 > kicked
 > kicked_stat
@@ -50,7 +45,7 @@ for file in $(ls spinpat/*.spin); do
     bx=$(echo $line | awk '{print $1}')
     blue=$(echo $line | awk '{print $2}')
     yell=$(echo $line | awk '{print $3}')
-    grep_result=$(grep -w "$fill $bx" kicked_manual)
+    grep_result=$(grep -w "$fill $bx" pathologies.txt)
     
     spinbit=-1
     if [ $blue -eq -1 -a $yell -eq -1 ]; then spinbit=0;
