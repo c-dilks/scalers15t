@@ -220,21 +220,23 @@ void combineAll(const char * rdatfile="rdat_i.root", const char * sumfile="sums.
   // -- these bounds were determined by eye
   // -- these are so far only done using cdf acc+mul corrections; but not rate-safe corrections;
   //    this can be modified later, but I so far see no reason that it's needed
+  // -- currently these diagnostics are only for R3
   Float_t d_vz_cc[3];
   Float_t d_xx_cc[3][3];
   Float_t t_tau;
-  d_vz_cc[0] = 1.000; // VPDE - ZDCE
+  d_vz_cc[0] = 1.000; // VPDE - ZDCE // ZDC not reliable for run15? leave cuts open for now (only cut on VPD)
   d_vz_cc[1] = 1.000; // VPDW - ZDCW
   d_vz_cc[2] = 1.000; // VPDX - ZDCX
   d_xx_cc[0][1] = 1.000; // ZDCE - ZDCW
-  d_xx_cc[0][2] = 1.000;  // VPDE - VPDW
+  d_xx_cc[0][2] = 0.002;  // VPDE - VPDW  // <---
   d_xx_cc[1][1] = 1.000;  // ZDCE - ZDCX
-  d_xx_cc[1][2] = 1.000;  // VPDE - VPDX
+  d_xx_cc[1][2] = 0.002;  // VPDE - VPDX  // <---
   d_xx_cc[2][1] = 1.000;  // ZDCW - ZDCX
-  d_xx_cc[2][2] = 1.000;  // VPDW - VPDX
-  t_tau = 1.1;
+  d_xx_cc[2][2] = 0.003;  // VPDW - VPDX  // <---
+  t_tau = 3; // not used any more (since t is accurate up to a second; tau is much more accurate)
 
-  printf("\ndiagnostic cuts\n");
+  gSystem->RedirectOutput("consistency_cuts.txt","w");
+  printf("\nR3 diagnostic cuts\n");
   printf("| VPDE - ZDCE | < %f\n",d_vz_cc[0]);
   printf("| VPDW - ZDCW | < %f\n",d_vz_cc[1]);
   printf("| VPDX - ZDCX | < %f\n",d_vz_cc[2]);
@@ -245,6 +247,7 @@ void combineAll(const char * rdatfile="rdat_i.root", const char * sumfile="sums.
   printf("| ZDCW - ZDCX | < %f\n",d_xx_cc[2][1]);
   printf("| VPDW - VPDX | < %f\n",d_xx_cc[2][2]);
   printf("t / tau < %f\n",t_tau);
+  gSystem->RedirectOutput(0);
 
   // fill tree
   Int_t ent = rdat->GetEntries();
@@ -284,9 +287,12 @@ void combineAll(const char * rdatfile="rdat_i.root", const char * sumfile="sums.
 
   rellum->Write();
 
-  printf("\nrellum tree written to rtree.root\n");
 
+  gSystem->RedirectOutput("consistency_cuts.txt","a");
   printf("%d / %d rellum tree entries pass consistency check\n",
     rellum->GetEntries("isConsistent"),
     rellum->GetEntries());
+  gSystem->RedirectOutput(0);
+  system("cat consistency_cuts.txt");
+  printf("\nrellum tree written to rtree.root\n");
 };

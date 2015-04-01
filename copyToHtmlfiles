@@ -13,6 +13,7 @@ cp -v bit_doc.txt $dir/
 cp -v bit_map.pdf $dir/
 cp -rv bit_combos $dir/
 cp -v run_table.txt $dir/
+cp -v consistency_cuts.txt $dir/
 cp -rv png_rellum $dir/
 cp -rv pdf_bXings_fills_log $dir/
 cp -rv pdf_bXings_fills_lin $dir/

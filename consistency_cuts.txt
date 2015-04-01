@@ -1,0 +1,13 @@
+
+R3 diagnostic cuts
+| VPDE - ZDCE | < 1.000000
+| VPDW - ZDCW | < 1.000000
+| VPDX - ZDCX | < 1.000000
+| ZDCE - ZDCW | < 1.000000
+| VPDE - VPDW | < 0.002000
+| ZDCE - ZDCX | < 1.000000
+| VPDE - VPDX | < 0.002000
+| ZDCW - ZDCX | < 1.000000
+| VPDW - VPDX | < 0.003000
+t / tau < 3.000000
+656 / 672 rellum tree entries pass consistency check
