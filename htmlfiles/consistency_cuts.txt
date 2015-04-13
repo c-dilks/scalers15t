@@ -10,4 +10,4 @@ R3 diagnostic cuts
 | ZDCW - ZDCX | < 1.000000
 | VPDW - VPDX | < 0.003000
 t / tau < 3.000000
-656 / 672 rellum tree entries pass consistency check
+876 / 896 rellum tree entries pass consistency check

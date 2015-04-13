@@ -838,3 +838,343 @@ sum: 56 19
 18846:  B[444] x Y[112] <444112> (@ STAR)
 18846:  B[333] x Y[122] <333122> (@ CDEV)
 
+fill 18847
+B3 x Y1   bbx:0-7  ybx:80-87
+B3 x Y1   bbx:8-15  ybx:88-95
+B3 x Y2   bbx:16-23  ybx:96-103
+B3 x Y1   bbx:24-31  ybx:104-111
+B3 x Y0   bbx:32-39  ybx:112-119
+B3 x Y2   bbx:40-47  ybx:0-7
+B3 x Y1   bbx:48-55  ybx:8-15
+B3 x Y1   bbx:56-63  ybx:16-23
+B3 x Y2   bbx:64-71  ybx:24-31
+B3 x Y1   bbx:72-79  ybx:32-39
+B3 x Y1   bbx:80-87  ybx:40-47
+B3 x Y2   bbx:88-95  ybx:48-55
+B3 x Y1   bbx:96-103  ybx:56-63
+B3 x Y1   bbx:104-111  ybx:64-71
+B0 x Y2   bbx:112-119  ybx:72-79
+sum: 42 19
+18847:  B[333] x Y[112] <333112> (@ STAR)
+18847:  B[444] x Y[122] <444122> (@ CDEV)
+
+fill 18848
+B4 x Y2   bbx:0-7  ybx:80-87
+B4 x Y2   bbx:8-15  ybx:88-95
+B4 x Y1   bbx:16-23  ybx:96-103
+B4 x Y2   bbx:24-31  ybx:104-111
+B4 x Y0   bbx:32-39  ybx:112-119
+B4 x Y1   bbx:40-47  ybx:0-7
+B4 x Y2   bbx:48-55  ybx:8-15
+B4 x Y2   bbx:56-63  ybx:16-23
+B4 x Y1   bbx:64-71  ybx:24-31
+B4 x Y2   bbx:72-79  ybx:32-39
+B4 x Y2   bbx:80-87  ybx:40-47
+B4 x Y1   bbx:88-95  ybx:48-55
+B4 x Y2   bbx:96-103  ybx:56-63
+B4 x Y2   bbx:104-111  ybx:64-71
+B0 x Y1   bbx:112-119  ybx:72-79
+sum: 56 23
+18848:  B[444] x Y[221] <444221> (@ STAR)
+18848:  B[333] x Y[211] <333211> (@ CDEV)
+
+fill 18849
+B3 x Y2   bbx:0-7  ybx:80-87
+B3 x Y2   bbx:8-15  ybx:88-95
+B3 x Y1   bbx:16-23  ybx:96-103
+B3 x Y2   bbx:24-31  ybx:104-111
+B3 x Y0   bbx:32-39  ybx:112-119
+B3 x Y1   bbx:40-47  ybx:0-7
+B3 x Y2   bbx:48-55  ybx:8-15
+B3 x Y2   bbx:56-63  ybx:16-23
+B3 x Y1   bbx:64-71  ybx:24-31
+B3 x Y2   bbx:72-79  ybx:32-39
+B3 x Y2   bbx:80-87  ybx:40-47
+B3 x Y1   bbx:88-95  ybx:48-55
+B3 x Y2   bbx:96-103  ybx:56-63
+B3 x Y2   bbx:104-111  ybx:64-71
+B0 x Y1   bbx:112-119  ybx:72-79
+sum: 42 23
+18849:  B[333] x Y[221] <333221> (@ STAR)
+18849:  B[444] x Y[211] <444211> (@ CDEV)
+
+fill 18850
+B2 x Y4   bbx:0-7  ybx:80-87
+B1 x Y4   bbx:8-15  ybx:88-95
+B1 x Y4   bbx:16-23  ybx:96-103
+B2 x Y4   bbx:24-31  ybx:104-111
+B1 x Y0   bbx:32-39  ybx:112-119
+B1 x Y4   bbx:40-47  ybx:0-7
+B2 x Y4   bbx:48-55  ybx:8-15
+B1 x Y4   bbx:56-63  ybx:16-23
+B1 x Y4   bbx:64-71  ybx:24-31
+B2 x Y4   bbx:72-79  ybx:32-39
+B1 x Y4   bbx:80-87  ybx:40-47
+B1 x Y4   bbx:88-95  ybx:48-55
+B2 x Y4   bbx:96-103  ybx:56-63
+B1 x Y4   bbx:104-111  ybx:64-71
+B0 x Y4   bbx:112-119  ybx:72-79
+sum: 19 56
+18850:  B[211] x Y[444] <211444> (@ STAR)
+18850:  B[122] x Y[333] <122333> (@ CDEV)
+
+fill 18852
+B1 x Y4   bbx:0-7  ybx:80-87
+B2 x Y4   bbx:8-15  ybx:88-95
+B2 x Y4   bbx:16-23  ybx:96-103
+B1 x Y4   bbx:24-31  ybx:104-111
+B2 x Y0   bbx:32-39  ybx:112-119
+B2 x Y4   bbx:40-47  ybx:0-7
+B1 x Y4   bbx:48-55  ybx:8-15
+B2 x Y4   bbx:56-63  ybx:16-23
+B2 x Y4   bbx:64-71  ybx:24-31
+B1 x Y4   bbx:72-79  ybx:32-39
+B2 x Y4   bbx:80-87  ybx:40-47
+B2 x Y4   bbx:88-95  ybx:48-55
+B1 x Y4   bbx:96-103  ybx:56-63
+B2 x Y4   bbx:104-111  ybx:64-71
+B0 x Y4   bbx:112-119  ybx:72-79
+sum: 23 56
+18852:  B[122] x Y[444] <122444> (@ STAR)
+18852:  B[211] x Y[333] <211333> (@ CDEV)
+
+fill 18853
+B2 x Y3   bbx:0-7  ybx:80-87
+B1 x Y3   bbx:8-15  ybx:88-95
+B1 x Y3   bbx:16-23  ybx:96-103
+B2 x Y3   bbx:24-31  ybx:104-111
+B1 x Y0   bbx:32-39  ybx:112-119
+B1 x Y3   bbx:40-47  ybx:0-7
+B2 x Y3   bbx:48-55  ybx:8-15
+B1 x Y3   bbx:56-63  ybx:16-23
+B1 x Y3   bbx:64-71  ybx:24-31
+B2 x Y3   bbx:72-79  ybx:32-39
+B1 x Y3   bbx:80-87  ybx:40-47
+B1 x Y3   bbx:88-95  ybx:48-55
+B2 x Y3   bbx:96-103  ybx:56-63
+B1 x Y3   bbx:104-111  ybx:64-71
+B0 x Y3   bbx:112-119  ybx:72-79
+sum: 19 42
+18853:  B[211] x Y[333] <211333> (@ STAR)
+18853:  B[122] x Y[444] <122444> (@ CDEV)
+
+fill 18854
+B1 x Y3   bbx:0-7  ybx:80-87
+B2 x Y3   bbx:8-15  ybx:88-95
+B2 x Y3   bbx:16-23  ybx:96-103
+B1 x Y3   bbx:24-31  ybx:104-111
+B2 x Y0   bbx:32-39  ybx:112-119
+B2 x Y3   bbx:40-47  ybx:0-7
+B1 x Y3   bbx:48-55  ybx:8-15
+B2 x Y3   bbx:56-63  ybx:16-23
+B2 x Y3   bbx:64-71  ybx:24-31
+B1 x Y3   bbx:72-79  ybx:32-39
+B2 x Y3   bbx:80-87  ybx:40-47
+B2 x Y3   bbx:88-95  ybx:48-55
+B1 x Y3   bbx:96-103  ybx:56-63
+B2 x Y3   bbx:104-111  ybx:64-71
+B0 x Y3   bbx:112-119  ybx:72-79
+sum: 23 42
+18854:  B[122] x Y[333] <122333> (@ STAR)
+18854:  B[211] x Y[444] <211444> (@ CDEV)
+
+fill 18855
+B4 x Y1   bbx:0-7  ybx:80-87
+B4 x Y1   bbx:8-15  ybx:88-95
+B4 x Y2   bbx:16-23  ybx:96-103
+B4 x Y1   bbx:24-31  ybx:104-111
+B4 x Y0   bbx:32-39  ybx:112-119
+B4 x Y2   bbx:40-47  ybx:0-7
+B4 x Y1   bbx:48-55  ybx:8-15
+B4 x Y1   bbx:56-63  ybx:16-23
+B4 x Y2   bbx:64-71  ybx:24-31
+B4 x Y1   bbx:72-79  ybx:32-39
+B4 x Y1   bbx:80-87  ybx:40-47
+B4 x Y2   bbx:88-95  ybx:48-55
+B4 x Y1   bbx:96-103  ybx:56-63
+B4 x Y1   bbx:104-111  ybx:64-71
+B0 x Y2   bbx:112-119  ybx:72-79
+sum: 56 19
+18855:  B[444] x Y[112] <444112> (@ STAR)
+18855:  B[333] x Y[122] <333122> (@ CDEV)
+
+fill 18856
+B3 x Y1   bbx:0-7  ybx:80-87
+B3 x Y1   bbx:8-15  ybx:88-95
+B3 x Y2   bbx:16-23  ybx:96-103
+B3 x Y1   bbx:24-31  ybx:104-111
+B3 x Y0   bbx:32-39  ybx:112-119
+B3 x Y2   bbx:40-47  ybx:0-7
+B3 x Y1   bbx:48-55  ybx:8-15
+B3 x Y1   bbx:56-63  ybx:16-23
+B3 x Y2   bbx:64-71  ybx:24-31
+B3 x Y1   bbx:72-79  ybx:32-39
+B3 x Y1   bbx:80-87  ybx:40-47
+B3 x Y2   bbx:88-95  ybx:48-55
+B3 x Y1   bbx:96-103  ybx:56-63
+B3 x Y1   bbx:104-111  ybx:64-71
+B0 x Y2   bbx:112-119  ybx:72-79
+sum: 42 19
+18856:  B[333] x Y[112] <333112> (@ STAR)
+18856:  B[444] x Y[122] <444122> (@ CDEV)
+
+fill 18857
+B4 x Y2   bbx:0-7  ybx:80-87
+B4 x Y2   bbx:8-15  ybx:88-95
+B4 x Y1   bbx:16-23  ybx:96-103
+B4 x Y2   bbx:24-31  ybx:104-111
+B4 x Y0   bbx:32-39  ybx:112-119
+B4 x Y1   bbx:40-47  ybx:0-7
+B4 x Y2   bbx:48-55  ybx:8-15
+B4 x Y2   bbx:56-63  ybx:16-23
+B4 x Y1   bbx:64-71  ybx:24-31
+B4 x Y2   bbx:72-79  ybx:32-39
+B4 x Y2   bbx:80-87  ybx:40-47
+B4 x Y1   bbx:88-95  ybx:48-55
+B4 x Y2   bbx:96-103  ybx:56-63
+B4 x Y2   bbx:104-111  ybx:64-71
+B0 x Y1   bbx:112-119  ybx:72-79
+sum: 56 23
+18857:  B[444] x Y[221] <444221> (@ STAR)
+18857:  B[333] x Y[211] <333211> (@ CDEV)
+
+fill 18865
+B3 x Y2   bbx:0-7  ybx:80-87
+B3 x Y2   bbx:8-15  ybx:88-95
+B3 x Y1   bbx:16-23  ybx:96-103
+B3 x Y2   bbx:24-31  ybx:104-111
+B3 x Y0   bbx:32-39  ybx:112-119
+B3 x Y1   bbx:40-47  ybx:0-7
+B3 x Y2   bbx:48-55  ybx:8-15
+B3 x Y2   bbx:56-63  ybx:16-23
+B3 x Y1   bbx:64-71  ybx:24-31
+B3 x Y2   bbx:72-79  ybx:32-39
+B3 x Y2   bbx:80-87  ybx:40-47
+B3 x Y1   bbx:88-95  ybx:48-55
+B3 x Y2   bbx:96-103  ybx:56-63
+B3 x Y2   bbx:104-111  ybx:64-71
+B0 x Y1   bbx:112-119  ybx:72-79
+sum: 42 23
+18865:  B[333] x Y[221] <333221> (@ STAR)
+18865:  B[444] x Y[211] <444211> (@ CDEV)
+
+fill 18868
+B2 x Y4   bbx:0-7  ybx:80-87
+B1 x Y4   bbx:8-15  ybx:88-95
+B1 x Y4   bbx:16-23  ybx:96-103
+B2 x Y4   bbx:24-31  ybx:104-111
+B1 x Y0   bbx:32-39  ybx:112-119
+B1 x Y4   bbx:40-47  ybx:0-7
+B2 x Y4   bbx:48-55  ybx:8-15
+B1 x Y4   bbx:56-63  ybx:16-23
+B1 x Y4   bbx:64-71  ybx:24-31
+B2 x Y4   bbx:72-79  ybx:32-39
+B1 x Y4   bbx:80-87  ybx:40-47
+B1 x Y4   bbx:88-95  ybx:48-55
+B2 x Y4   bbx:96-103  ybx:56-63
+B1 x Y4   bbx:104-111  ybx:64-71
+B0 x Y4   bbx:112-119  ybx:72-79
+sum: 19 56
+18868:  B[211] x Y[444] <211444> (@ STAR)
+18868:  B[122] x Y[333] <122333> (@ CDEV)
+
+fill 18875
+B1 x Y4   bbx:0-7  ybx:80-87
+B2 x Y4   bbx:8-15  ybx:88-95
+B2 x Y4   bbx:16-23  ybx:96-103
+B1 x Y4   bbx:24-31  ybx:104-111
+B2 x Y0   bbx:32-39  ybx:112-119
+B2 x Y4   bbx:40-47  ybx:0-7
+B1 x Y4   bbx:48-55  ybx:8-15
+B2 x Y4   bbx:56-63  ybx:16-23
+B2 x Y4   bbx:64-71  ybx:24-31
+B1 x Y4   bbx:72-79  ybx:32-39
+B2 x Y4   bbx:80-87  ybx:40-47
+B2 x Y4   bbx:88-95  ybx:48-55
+B1 x Y4   bbx:96-103  ybx:56-63
+B2 x Y4   bbx:104-111  ybx:64-71
+B0 x Y4   bbx:112-119  ybx:72-79
+sum: 23 56
+18875:  B[122] x Y[444] <122444> (@ STAR)
+18875:  B[211] x Y[333] <211333> (@ CDEV)
+
+fill 18876
+B2 x Y3   bbx:0-7  ybx:80-87
+B1 x Y3   bbx:8-15  ybx:88-95
+B1 x Y3   bbx:16-23  ybx:96-103
+B2 x Y3   bbx:24-31  ybx:104-111
+B1 x Y0   bbx:32-39  ybx:112-119
+B1 x Y3   bbx:40-47  ybx:0-7
+B2 x Y3   bbx:48-55  ybx:8-15
+B1 x Y3   bbx:56-63  ybx:16-23
+B1 x Y3   bbx:64-71  ybx:24-31
+B2 x Y3   bbx:72-79  ybx:32-39
+B1 x Y3   bbx:80-87  ybx:40-47
+B1 x Y3   bbx:88-95  ybx:48-55
+B2 x Y3   bbx:96-103  ybx:56-63
+B1 x Y3   bbx:104-111  ybx:64-71
+B0 x Y3   bbx:112-119  ybx:72-79
+sum: 19 42
+18876:  B[211] x Y[333] <211333> (@ STAR)
+18876:  B[122] x Y[444] <122444> (@ CDEV)
+
+fill 18881
+B3 x Y1   bbx:0-7  ybx:80-87
+B3 x Y1   bbx:8-15  ybx:88-95
+B3 x Y2   bbx:16-23  ybx:96-103
+B3 x Y1   bbx:24-31  ybx:104-111
+B3 x Y0   bbx:32-39  ybx:112-119
+B3 x Y2   bbx:40-47  ybx:0-7
+B3 x Y1   bbx:48-55  ybx:8-15
+B3 x Y1   bbx:56-63  ybx:16-23
+B3 x Y2   bbx:64-71  ybx:24-31
+B3 x Y1   bbx:72-79  ybx:32-39
+B3 x Y1   bbx:80-87  ybx:40-47
+B3 x Y2   bbx:88-95  ybx:48-55
+B3 x Y1   bbx:96-103  ybx:56-63
+B3 x Y1   bbx:104-111  ybx:64-71
+B0 x Y2   bbx:112-119  ybx:72-79
+sum: 42 19
+18881:  B[333] x Y[112] <333112> (@ STAR)
+18881:  B[444] x Y[122] <444122> (@ CDEV)
+
+fill 18882
+B3 x Y1   bbx:0-7  ybx:80-87
+B3 x Y1   bbx:8-15  ybx:88-95
+B3 x Y2   bbx:16-23  ybx:96-103
+B3 x Y1   bbx:24-31  ybx:104-111
+B3 x Y0   bbx:32-39  ybx:112-119
+B3 x Y2   bbx:40-47  ybx:0-7
+B3 x Y1   bbx:48-55  ybx:8-15
+B3 x Y1   bbx:56-63  ybx:16-23
+B3 x Y2   bbx:64-71  ybx:24-31
+B3 x Y1   bbx:72-79  ybx:32-39
+B3 x Y1   bbx:80-87  ybx:40-47
+B3 x Y2   bbx:88-95  ybx:48-55
+B3 x Y1   bbx:96-103  ybx:56-63
+B3 x Y1   bbx:104-111  ybx:64-71
+B0 x Y2   bbx:112-119  ybx:72-79
+sum: 42 19
+18882:  B[333] x Y[112] <333112> (@ STAR)
+18882:  B[444] x Y[122] <444122> (@ CDEV)
+
+fill 18883
+B4 x Y2   bbx:0-7  ybx:80-87
+B4 x Y2   bbx:8-15  ybx:88-95
+B4 x Y1   bbx:16-23  ybx:96-103
+B4 x Y2   bbx:24-31  ybx:104-111
+B4 x Y0   bbx:32-39  ybx:112-119
+B4 x Y1   bbx:40-47  ybx:0-7
+B4 x Y2   bbx:48-55  ybx:8-15
+B4 x Y2   bbx:56-63  ybx:16-23
+B4 x Y1   bbx:64-71  ybx:24-31
+B4 x Y2   bbx:72-79  ybx:32-39
+B4 x Y2   bbx:80-87  ybx:40-47
+B4 x Y1   bbx:88-95  ybx:48-55
+B4 x Y2   bbx:96-103  ybx:56-63
+B4 x Y2   bbx:104-111  ybx:64-71
+B0 x Y1   bbx:112-119  ybx:72-79
+sum: 56 23
+18883:  B[444] x Y[221] <444221> (@ STAR)
+18883:  B[333] x Y[211] <333211> (@ CDEV)
+
