@@ -20,6 +20,7 @@ i=0
 filli=0
 filltmp=0
 for file in $(ls run*.dat); do
+  echo "reading $file"
   runnum=$(echo $file | cut -c4-11)
   grepstr=$(grep $runnum ../culled_run_list.txt | awk '{print $3" "$4" "$5}');
   fill=$(echo $grepstr | awk '{print $1}')
