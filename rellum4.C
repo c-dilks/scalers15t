@@ -372,20 +372,46 @@ void rellum4(const char * var="i",Bool_t printPNGs=0,
   Double_t nn_rsc[3][5]; // manion's rate-safe counts (Omega * lambda * Nbx) [tbit][sbit] (Omega=epsilon*epsilon)
   Double_t nn_rsr[3][5]; // correction factor (Omega * rcs / raw coin)
   Double_t nn_tot[5]; // total scaler counts (N_bx) 
+  Bool_t skipCorrection;
   for(Int_t b=1; b<=var_bins; b++)
   {
-    for(Int_t s=0; s<5; s++)
-    {
-      nn_tot[s] = tot_d[s]->GetBinContent(b);
-      for(Int_t t=0; t<3; t++)
-      {
-        // get raw scaler counts for each trigger bit combination (E,W,X)
-        for(Int_t c=0; c<3; c++)
-        {
+    // get raw scaler counts for each trigger bit combination (E,W,X)
+    for(Int_t s=0; s<5; s++) {
+      for(Int_t t=0; t<3; t++) {
+        for(Int_t c=0; c<3; c++) {
           nn_raw[t][c][s] = raw_d[t][c][s]->GetBinContent(b);
         };
-        // only compute corrections for nonzero counts
-        if(nn_tot[s]>0 && nn_raw[t][0][s]>0 && nn_raw[t][1][s]>0 && nn_raw[t][2][s]>0)
+      };
+    };
+
+    for(Int_t s=0; s<5; s++)
+    {
+      for(Int_t t=0; t<3; t++)
+      {
+
+        nn_tot[s] = tot_d[s]->GetBinContent(b);
+
+        // only compute corrections for certain cases; otherwise the corrected
+        // counts is set to zero for a run, which subsequently supresses the
+        // rellum calculation
+        skipCorrection = false; // reset
+
+        // first, demand at least a few counts, because sometimes there are
+        // sporadic scale counts in the VPD, for example, even if the VPD was
+        // 'off'; note that the VPD was off for several runs
+        if(nn_tot[s]<3) skipCorrection = true;
+        for(Int_t ci=0; ci<3; ci++) {
+          for(Int_t si=0; si<5; si++) {
+            if(nn_raw[t][ci][si]<3) skipCorrection = true;
+          };
+        };
+
+        // we also must make sure that any denominator of any correction formula is nonzero
+        if(nn_tot[s] == nn_raw[t][0][s]) skipCorrection = true; 
+        if(nn_tot[s] == nn_raw[t][1][s]) skipCorrection = true;
+        if(nn_tot[s] == nn_raw[t][0][s] + nn_raw[t][1][s] - nn_raw[t][2][s]) skipCorrection = true;
+
+        if(!skipCorrection)
         {
           // compute scale probabilities
           for(Int_t c=0; c<3; c++) p_scal[t][c][s] = nn_raw[t][c][s] / nn_tot[s];
@@ -419,10 +445,41 @@ void rellum4(const char * var="i",Bool_t printPNGs=0,
             mul_d[t][c][s]->SetBinContent(b,nn_mul[t][c][s]);
             fac_d[t][c][s]->SetBinContent(b,nn_fac[t][c][s]);
           };
+        }
+        else
+        {
+          // if there were zero raw counts for any 3-bit combo, we force the corrected counts to be zero
+          // for all 3-bit combos
+          rsc_d[t][s]->SetBinContent(b,0);
+          rsr_d[t][s]->SetBinContent(b,0);
+          for(Int_t c=0; c<3; c++)
+          {
+            acc_d[t][c][s]->SetBinContent(b,0);
+            mul_d[t][c][s]->SetBinContent(b,0);
+            fac_d[t][c][s]->SetBinContent(b,0);
+          };
         };
       };
     };
   };
+
+  /*
+  // for debugging sporadic hits issue in VPD
+  int bitprint = 4;
+  for(Int_t b=1; b<=var_bins; b++) {
+    printf("raw -- b=%d  ent=%lf,%lf,%lf\n",b,
+      raw_d[2][0][bitprint]->GetBinContent(b),
+      raw_d[2][1][bitprint]->GetBinContent(b),
+      raw_d[2][2][bitprint]->GetBinContent(b));
+    printf("acc -- b=%d  ent=%lf,%lf,%lf\n",b,
+      acc_d[2][0][bitprint]->GetBinContent(b),
+      acc_d[2][1][bitprint]->GetBinContent(b),
+      acc_d[2][2][bitprint]->GetBinContent(b));
+  };
+  return;
+  */
+
+
 
   
   // compute spinbit consistency (for var==fi only)
@@ -510,7 +567,8 @@ void rellum4(const char * var="i",Bool_t printPNGs=0,
         for(Int_t c=0; c<3; c++)
         {
           RC[c] = raw_d[t][c][s]->GetBinContent(b);
-          zeta[c] = 1-RC[c]/TC;
+          if(TC>0) zeta[c] = 1-RC[c]/TC;
+          else zeta[c] = 1;
         };
 
         // pearson correlation coefficients --- IS THIS ASSUMPTION VALID !?!?!?!?!?!?! (see CheckCorrelations.C --> corr.root ....)
@@ -623,42 +681,45 @@ void rellum4(const char * var="i",Bool_t printPNGs=0,
           };
 
           // rellum uncertainty propagation -- FORMULA; sqrt taken after if chain
-          if(r==1)
-            unc = ( ( pow(SS[1],2) + pow(SS[3],2) ) * pow(LL[0] + LL[2],2) + 
-                    ( pow(SS[0],2) + pow(SS[2],2) ) * pow(LL[1] + LL[3],2) ) / 
-                    ( pow(LL[0] + LL[2],4) );
-          else if(r==2)
-            unc = ( ( pow(SS[2],2) + pow(SS[3],2) ) * pow(LL[0] + LL[1],2) + 
-                    ( pow(SS[0],2) + pow(SS[1],2) ) * pow(LL[2] + LL[3],2) ) / 
-                    ( pow(LL[0] + LL[1],4) );
-          else if(r==3)
-            unc = ( ( pow(SS[0],2) + pow(SS[3],2) ) * pow(LL[1] + LL[2],2) + 
-                    ( pow(SS[1],2) + pow(SS[2],2) ) * pow(LL[0] + LL[3],2) ) / 
-                    ( pow(LL[1] + LL[2],4) );
-          else if(r==4) 
-            unc = ( pow(SS[3],2) * pow(LL[0],2) +
-                    pow(SS[0],2) * pow(LL[3],2) ) /
-                  ( pow(LL[0],4) );
-          else if(r==5)
-            unc = ( pow(SS[1],2) * pow(LL[0],2) +
-                    pow(SS[0],2) * pow(LL[1],2) ) /
-                  ( pow(LL[0],4) );
-          else if(r==6)
-            unc = ( pow(SS[2],2) * pow(LL[0],2) +
-                    pow(SS[0],2) * pow(LL[2],2) ) /
-                  ( pow(LL[0],4) );
-          else if(r==7)
-            unc = ( pow(SS[3],2) * pow(LL[2],2) +
-                    pow(SS[2],2) * pow(LL[3],2) ) /
-                  ( pow(LL[2],4) );
-          else if(r==8)
-            unc = ( pow(SS[2],2) * pow(LL[1],2) +
-                    pow(SS[1],2) * pow(LL[2],2) ) /
-                  ( pow(LL[2],4) );
-          else if(r==9)
-            unc = ( pow(SS[3],2) * pow(LL[1],2) +
-                    pow(SS[1],2) * pow(LL[3],2) ) /
-                  ( pow(LL[1],4) );
+          if(LL[0]==0 || LL[1]==0 || LL[2]==0 || LL[3]==0) unc=0;
+          else { 
+            if(r==1)
+              unc = ( ( pow(SS[1],2) + pow(SS[3],2) ) * pow(LL[0] + LL[2],2) + 
+                      ( pow(SS[0],2) + pow(SS[2],2) ) * pow(LL[1] + LL[3],2) ) / 
+                      ( pow(LL[0] + LL[2],4) );
+            else if(r==2)
+              unc = ( ( pow(SS[2],2) + pow(SS[3],2) ) * pow(LL[0] + LL[1],2) + 
+                      ( pow(SS[0],2) + pow(SS[1],2) ) * pow(LL[2] + LL[3],2) ) / 
+                      ( pow(LL[0] + LL[1],4) );
+            else if(r==3)
+              unc = ( ( pow(SS[0],2) + pow(SS[3],2) ) * pow(LL[1] + LL[2],2) + 
+                      ( pow(SS[1],2) + pow(SS[2],2) ) * pow(LL[0] + LL[3],2) ) / 
+                      ( pow(LL[1] + LL[2],4) );
+            else if(r==4) 
+              unc = ( pow(SS[3],2) * pow(LL[0],2) +
+                      pow(SS[0],2) * pow(LL[3],2) ) /
+                    ( pow(LL[0],4) );
+            else if(r==5)
+              unc = ( pow(SS[1],2) * pow(LL[0],2) +
+                      pow(SS[0],2) * pow(LL[1],2) ) /
+                    ( pow(LL[0],4) );
+            else if(r==6)
+              unc = ( pow(SS[2],2) * pow(LL[0],2) +
+                      pow(SS[0],2) * pow(LL[2],2) ) /
+                    ( pow(LL[0],4) );
+            else if(r==7)
+              unc = ( pow(SS[3],2) * pow(LL[2],2) +
+                      pow(SS[2],2) * pow(LL[3],2) ) /
+                    ( pow(LL[2],4) );
+            else if(r==8)
+              unc = ( pow(SS[2],2) * pow(LL[1],2) +
+                      pow(SS[1],2) * pow(LL[2],2) ) /
+                    ( pow(LL[2],4) );
+            else if(r==9)
+              unc = ( pow(SS[3],2) * pow(LL[1],2) +
+                      pow(SS[1],2) * pow(LL[3],2) ) /
+                    ( pow(LL[1],4) );
+          };
 
           unc = sqrt(unc);
           //unc = sqrt(fabs(unc)); // TESTING; only needed if counts go negative from "bad" corrections
@@ -913,7 +974,7 @@ void rellum4(const char * var="i",Bool_t printPNGs=0,
             else if(uu==1) mmm[s] = rsc_d[t][s]->GetBinContent(b);
             nn_tot[s] = tot_d[s]->GetBinContent(b);
           };
-          if(nn_tot[0]*nn_tot[1]*nn_tot[2]*nn_tot[3]>0)
+          if(nn_tot[0]*nn_tot[1]*nn_tot[2]*nn_tot[3]>0 && mmm[0]*mmm[1]*mmm[2]*mmm[3]>0)
           {
             rrr[1] = (mmm[3] + mmm[1]) / (mmm[2] + mmm[0]);
             rrr[2] = (mmm[3] + mmm[2]) / (mmm[1] + mmm[0]);
