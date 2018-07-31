@@ -12,7 +12,8 @@
 #    is implemented below
 
 
-cat fill.txt | awk '{print $2}' | uniq > fill_tmp.txt
+ls spinpat/blue*.dat | sed 's/^.*\.fill//;s/\.dat//' | sort | uniq > fill_tmp.txt
+
 polstr="-buckets-polarization-fillpatterns.fill"
 while read fill; do
   bluefile=spinpat/blue$polstr$fill.dat

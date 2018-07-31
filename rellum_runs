@@ -9,8 +9,11 @@ else
   zoomIn=$2
 fi
 
-
+# SELECT WHICH GOOD RUN LIST HERE
+#################################
+awk '{print $1" "$3}' good_trans.dat | sort | uniq > fill.txt
 cat fill.txt | awk '{print $1}' | uniq > run_list.txt
+#################################
 
 
 
